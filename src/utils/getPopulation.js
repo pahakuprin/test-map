@@ -9,7 +9,7 @@ export default async function getPopulation(feature) {
   const geojson = converter.writeFeatures([feature]);
 
   return fetch(
-    `http://gis01.rumap.ru/4898/areaStatistics?guid=${process.env.REACT_APP_GUID}&geojson=${geojson}&geometry=1`
+    `https://gis01.rumap.ru/4898/areaStatistics?guid=${process.env.REACT_APP_GUID}&geojson=${geojson}&geometry=1`
   )
     .then((response) => response.json())
     .then(({ population_rsv }) => {
