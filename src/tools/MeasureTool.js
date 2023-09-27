@@ -1,3 +1,4 @@
+import { doubleClick } from 'ol/events/condition';
 import { Draw, Modify, Snap } from 'ol/interaction';
 import VectorLayer from 'ol/layer/Vector';
 import { Style, Fill, Stroke, Text } from 'ol/style';
@@ -33,7 +34,10 @@ export default class MeasureTool {
       this.updatePopulation(feature);
     });
 
-    this.modify = new Modify({ source: this.source });
+    this.modify = new Modify({
+      deleteCondition: doubleClick,
+      source: this.source,
+    });
 
     this.draw = new Draw({
       source: this.source,
