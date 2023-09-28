@@ -1,0 +1,71 @@
+.sideBar {
+  padding: 12px;
+  transform: translateY(-50%);
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  background: #fff;
+  box-shadow: 0 8px 18px -6px rgb(0 0 0 / 8%), 0 12px 42px -4px rgb(0 0 0 / 8%);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.control {
+  cursor: pointer;
+  appearance: none;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  font-size: 0;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: background-color ease-in 0.1s;
+}
+
+.control:focus {
+  outline: none;
+}
+
+.button {
+  text-align: center;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.button > input {
+  width: 40px;
+  height: 40px;
+}
+
+.button > input::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: #000000;
+}
+
+.button > input:checked {
+  background-color: rgb(64 152 247);
+  border: 2px solid rgb(62 150 236);
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+
+.button > input[data-type='move']::before {
+  mask-image: url('./moveCursor.svg');
+}
+
+.button > input[data-type='measure']::before {
+  mask-image: url('./measureCursor.svg');
+}
